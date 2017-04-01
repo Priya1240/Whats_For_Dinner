@@ -9,9 +9,6 @@ $('#ingSubmit').on('click', function() {
      $('#addItem').val('');
 });
 
-
-
-
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB9zqrDimq0-II0wdrXEIga34C-dTJwoV0",
@@ -22,21 +19,24 @@ $('#ingSubmit').on('click', function() {
   };
   firebase.initializeApp(config);
 
+  var database = firebase.database();
 
-#addZip
-#searchZip
-#groceryStores
+// #addZip
+// #searchZip
+// #groceryStores
 
 var zipCode;
-var url;
+var userurl;
 $("#searchZip").on("click", function(event){
   event.preventDefault();
   zipCode = $("#addZip").val().trim();
-  url = "https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
-  $.ajax.({url: url, method: "GET"});
+  userurl = "https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
 
+  $("iframe").attr("src", userurl);
 
-})
+  console.log("zipcode: " + zipCode);
+  console.log("userurl: " + userurl);
+});
 
 
 
@@ -64,3 +64,11 @@ $('#getRecipe').on('click', function(){
 
 });
 
+// $.ajax({url: url, method: "GET"});
+// .done(function(response){
+//   var results = response.data;
+//   for (var i=0; i<results.length; i++) {
+//     var
+//     restults[i]
+//   }
+// })
