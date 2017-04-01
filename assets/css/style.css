@@ -1,0 +1,25 @@
+.jumbotron {
+	color: white;
+	background-color: #8a024a;
+}
+.preferences {
+	margin-left: 20px;
+}
+
+.findRecipe {
+	/*font-size: 20px;*/
+/*	padding-top: 0px;*/
+}
+
+
+.nav {
+	margin-top: 20px;
+}
+
+img {
+
+	height: 200px;
+	width: 200px;
+	float: right;
+}
+
