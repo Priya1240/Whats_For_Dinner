@@ -8,8 +8,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
-    <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
- -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -51,8 +50,8 @@
                             <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option value="1">Vegan</option>
-                                <option value="2">Low Carb</option>
                                 <option value="3">Gluten-Free</option>
+                                <option value="2">Low Carb</option>
                             </select>
                             <label class="preferences" class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
                                 <input type="checkbox" class="custom-control-input">
@@ -71,14 +70,50 @@
                             <button id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
                         </form>
                         <br>
-                        <div class="list">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">List of Ingredients</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list">
+                                    Add...
+                                </div>
+                                <br>
+                                <div>
+                                    <a id="getRecipe" href="recipe.html" target="_blank">Find Me A Recipe!</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Need Ingredients? Find The Closest Grocery Store to You</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="POST" role="form">
+                            <legend>Enter Zip Code:</legend>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="addZip" placeholder="">
+                            </div>
+                            <button id="ingSubmit" type="submit" class="btn btn-primary" id="searchZip">Submit</button>
+                            <br>
+                            <br>
+                            <div id="groceryStores" class="google-maps">
+                                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048
+   &q=grocery+stores+near+" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="assets/javascript/app.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

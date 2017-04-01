@@ -58,3 +58,9 @@ $("#recentBtn").on("click", function(event){
 firebase.database().ref().orderByChild("dataAdded").limitToLast(1).on("value", function(snapshot){
 	$(".recent-list").html(snapshot.val().name);
 });
+
+$('#getRecipe').on('click', function(){
+	event.preventDefault();
+
+});
+
