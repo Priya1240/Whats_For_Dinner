@@ -8,3 +8,8 @@ $('#ingSubmit').on('click', function() {
     $('.list').append(list);
      $('#addItem').val('');
 });
+
+$('#getRecipe').on('click', function(){
+	event.preventDefault();
+
+});
