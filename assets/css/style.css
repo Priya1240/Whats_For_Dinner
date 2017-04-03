@@ -1,0 +1,108 @@
+/* CSS for Index Page */
+
+.navbar {
+        background: none;
+        border: none;
+        box-shadow: none
+    }
+    
+    nav {
+        padding-top: 30px;
+        padding: 0px;
+    }
+    
+    .titlestyle {
+        color: orange;
+        font-family: 'Pacifico', cursive;
+        font-size: 30px;
+    }
+    
+    .astyle {
+        color: white;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 16px;
+    }
+    
+    body {
+        font-family: 'Open Sans Condensed', sans-serif;
+    }
+    
+    .jumbotron {
+        text-align: center;
+        color: orange;
+        /*background-image: url('cooking.jpg');*/
+        background: url('../images/plate.jpg') no-repeat center center;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100%;
+        margin-bottom: 0px;
+    }
+    
+    h1 {
+        font-family: 'Pacifico', cursive;
+    }
+    
+    p {
+        font-family: 'Open Sans Condensed', sans-serif;
+    }
+    
+    body {
+        background-image: url("../images/dust.png");
+    }
+    
+    .panel {
+        margin: 0px;
+        margin-left: 0px;
+        padding: 0px;
+        background: none;
+        border: none;
+    }
+
+/* -- Inital CSS for Skeleton-- 
+
+.jumbotron {
+	color: white;
+	background-image: url("../images/sand.jpeg")
+
+}
+.preferences {
+	margin-left: 20px;
+}
+
+.findRecipe {
+	font-size: 20px;
+
+}
+
+
+.nav {
+	margin-top: 20px;
+}
+
+img {
+
+	height: 200px;
+	width: 200px;
+	float: right;
+}
+*/
+
+#groceryStores{
+
+
+}
+
+.google-maps {
+       position: relative;
+       padding-bottom: 75%; // This is the aspect ratio
+       height: 0;
+       overflow: hidden;
+   }
+   .google-maps iframe {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100% !important;
+       height: 100% !important;
+   }

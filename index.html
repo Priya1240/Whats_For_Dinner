@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Pacifico" rel="stylesheet">
+    <!-- Link to jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>What's For Dinner?</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="titlestyle">What's for Dinner!?</span></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><span class="astyle">ABOUT</span></a></li>
+                    <li><a href="#"><span class="astyle">TRENDING RECIPES</span></a></li>
+                    <li><a href="#"><span class="astyle">STORE LOCATOR</span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>What's<br>For<br>Dinner!?</h1>
+                <p>A recipe generator based on the ingredients you have.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-12" style="background-color:white;">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="" method="POST" role="form">
+                        <h3>Add Ingredients:</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="addItem" placeholder="ie. bacon">
+                        </div>
+                        <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <form>
+                        <h3>Filters:</h3>
+                        <label for="inlineFormCustomSelect">Meal Preference</label>
+                        <br>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                            <option selected>Choose...</option>
+                            <option value="1">Vegan</option>
+                            <option value="3">Gluten-Free</option>
+                            <option value="2">Low Carb</option>
+                        </select>
+                        <label class="preferences" class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                            <input type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Remember my preference</span>
+                        </label>
+                        <br>
+                        <button class="preferences" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-12" style="background-color:#faf283;">
+            <h1>Ingredient List</h1>
+            <div class="list">
+            </div>
+        </div>
+        <div class="col-sm-12" style="background-color:lavender;">
+            <h1>Recipes</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-12" style="background-color:white;> 
+        <div class=" panel panel-default ">
+              <div class="panel-heading ">
+                  <h3 class="panel-title ">Need Ingredients? Find The Closest Grocery Store to You</h3>
+              </div>
+              <div class="panel-body ">
+                  <form action=" " method="POST " role="form ">
+                        <legend>Enter Zip Code:</legend>
+                        <div class="form-group ">
+                            <input type="text " class="form-control " id="addZip " placeholder=" ">
+                        </div>
+                        <button id="ingSubmit " type="submit " class="btn btn-primary " id="searchZip ">Submit</button>
+                        <br>
+                        <br>
+                        <div id="groceryStores " class="google-maps ">
+                            <iframe frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+ " allowfullscreen>
+                            </iframe>
+                        </div>
+                    </form>
+              </div>
+          </div>  
+        </div>
+    </div> 
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
