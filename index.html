@@ -41,7 +41,7 @@
     </div>
     <div class='container-fluid'>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="findRecipe" class="panel-title">Find A Recipe!</h3>
@@ -70,6 +70,7 @@
                                 <input type="text" class="form-control" id="addItem" placeholder="">
                             </div>
                             <button id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
+                            <button id="openmap">ingredients locator</button>
                         </form>
                         <br>
                         <div class="panel panel-default">
@@ -86,10 +87,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div id="recipePreview">
+                          preview recipe goes here... 5 in a row
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+
+            <!-- Trigger/Open The Modal -->
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Grocery stores near you</h2>
+                </div>
+                <div class="modal-body" id="google-map">
+                  <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Need Ingredients? Find The Closest Grocery Store to You</h3>
@@ -110,7 +131,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </div>
 
