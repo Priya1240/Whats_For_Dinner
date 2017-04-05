@@ -6,28 +6,28 @@
         border: none;
         box-shadow: none
     }
-    
+
     nav {
         padding-top: 30px;
         padding: 0px;
     }
-    
+
     .titlestyle {
         color: orange;
         font-family: 'Pacifico', cursive;
         font-size: 30px;
     }
-    
+
     .astyle {
         color: white;
         font-family: 'Open Sans Condensed', sans-serif;
         font-size: 16px;
     }
-    
+
     body {
         font-family: 'Open Sans Condensed', sans-serif;
     }
-    
+
     .jumbotron {
         text-align: center;
         color: orange;
@@ -39,19 +39,19 @@
         background-size: 100%;
         margin-bottom: 0px;
     }
-    
+
     h1 {
         font-family: 'Pacifico', cursive;
     }
-    
+
     p {
         font-family: 'Open Sans Condensed', sans-serif;
     }
-    
+
     body {
         background-image: url("../images/dust.png");
     }
-    
+
     .panel {
         margin: 0px;
         margin-left: 0px;
