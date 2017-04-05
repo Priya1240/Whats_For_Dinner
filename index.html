@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Pacifico" rel="stylesheet">
-
     <!-- Link to jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -22,7 +21,7 @@
 
 <body>
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -43,7 +42,7 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="jumbotron">
             <div class="container">
                 <h1>What's<br>For<br>Dinner!?</h1>
@@ -51,142 +50,39 @@
             </div>
         </div>
     </div>
-    <div class='container-fluid'>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="findRecipe" class="panel-title">Find A Recipe!</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form class="form-inline">
-                            <label class="mr-sm-2" for="inlineFormCustomSelect">Meal Preference</label>
-                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                                <option selected>Choose...</option>
-                                <option value="1">Vegan</option>
-                                <option value="3">Gluten-Free</option>
-                                <option value="2">Low Carb</option>
-                            </select>
-                            <label class="preferences" class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                                <input type="checkbox" class="custom-control-input">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Remember my preference</span>
-                            </label>
-                            <button class="preferences" type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        <br>
-                        <br>
-                        <form action="" method="POST" role="form">
-                            <legend>Add Ingredients:</legend>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="addItem" placeholder="">
-                            </div>
-                            <button id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
-                            <button id="openmap">ingredients locator</button>
-                        </form>
-                        <br>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">List of Ingredients</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list">
-                                    Add...
-                                </div>
-                                <br>
-                                <div>
-                                    <a id="getRecipe" href="recipe.html" target="_blank">Find Me A Recipe!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="recipePreview">
-                          preview recipe goes here... 5 in a row
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Trigger/Open The Modal -->
-            <div id="myModal" class="modal">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <span class="close">&times;</span>
-                  <h2>Grocery stores near you</h2>
-                </div>
-                <div class="modal-body" id="google-map">
-                  <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
-                  </iframe>
-                </div>
-              </div>
-            </div>
-
-            <!-- <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Need Ingredients? Find The Closest Grocery Store to You</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form action="" method="POST" role="form">
-                            <legend>Enter Zip Code:</legend>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="addZip" placeholder="">
-                            </div>
-                            <button id="ingSubmit" type="submit" class="btn btn-primary" id="searchZip">Submit</button>
-                            <br>
-                            <br>
-                            <div id="groceryStores" class="google-maps">
-                                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
-                                </iframe>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-    <div class="container">
-        <div class="col-sm-12" style="background-color:white;">
             <div class="panel panel-default">
-                <div class="panel-body">
+                <div class="panel-body centerthis">
                     <form action="" method="POST" role="form">
+                        <h1>Ingredient List</h1>
                         <h3>Add Ingredients:</h3>
                         <div class="form-group">
                             <input type="text" class="form-control" id="addItem" placeholder="ie. bacon">
                         </div>
                         <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                    <form>
-                        <h3>Filters:</h3>
-                        <label for="inlineFormCustomSelect">Meal Preference</label>
-                        <br>
-                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Vegan</option>
-                            <option value="3">Gluten-Free</option>
-                            <option value="2">Low Carb</option>
-                        </select>
-                        <label class="preferences" class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Remember my preference</span>
-                        </label>
-                        <br>
-                        <button class="preferences" type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-
+                    <div class="list">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="col-sm-12" style="background-color:#faf283;">
-            <h1>Ingredient List</h1>
-            <div class="list">
+    <div id="recipePreview">
+        preview recipe goes here... 5 in a row
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Trigger/Open The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Grocery stores near you</h2>
             </div>
-        </div>
-        <div class="col-sm-12" style="background-color:lavender;">
-            <h1>Recipes</h1>
+            <div class="modal-body" id="google-map">
+                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -216,8 +112,8 @@
 
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js "></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-    <script src="assets/javascript/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js "></script>
+    <script src="assets/javascript/app.js "></script>
 
 </body>
 

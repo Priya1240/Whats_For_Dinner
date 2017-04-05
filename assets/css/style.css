@@ -1,7 +1,124 @@
-
 /* CSS for Index Page */
 
 .navbar {
+
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+nav {
+    padding-top: 30px;
+    padding: 0px;
+}
+
+.titlestyle {
+    color: #FFA07A;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+
+.astyle {
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.jumbotron {
+    text-align: center;
+    color: #FFA07A;
+    /*background-image: url('cooking.jpg');*/
+    background: url('../images/plate.jpg') no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100%;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body {
+    background-image: url("../images/dust.png");
+}
+
+.panel {
+    margin: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    background: none;
+    border: none;
+}
+
+.centerthis {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    float: left;
+}
+
+#groceryStores {}
+
+#google-map {
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+}
+
+#google-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+
         background: none;
         border: none;
         box-shadow: none
@@ -105,6 +222,7 @@
 }
 
 /* The Close Button */
+
 .close {
     color: #aaaaaa;
     float: right;
