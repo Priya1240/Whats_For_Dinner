@@ -31,6 +31,10 @@ $('#ingSubmit').on('click', function() {
     list.text(userInp + blank + ex);
     $(".list").append(list);
 
+    $('.ingredientButton').on('click', function() {
+      $(".ingredientButton").remove();
+    });
+
 });
 
 // show search results of recipe preview: image, title, and likes
