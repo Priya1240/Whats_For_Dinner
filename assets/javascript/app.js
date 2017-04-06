@@ -18,10 +18,19 @@ $('#ingSubmit').on('click', function() {
     console.log("searchTerms:" + searchTerms);
 
     // add user input ingredients to list
-    var list = $('<ul>');
-    list.append('<li>' + userInp + '</li>');
-    $('.list').append(list);
-    $('#addItem').val('');
+    // var list = $('<ul>');
+    // list.append('<li>' + userInp + '</li>');
+    // $('.list').append(list);
+    // $('#addItem').val('');
+
+    // add user input ingredient as a button
+    var list = $("<button>");
+    var ex = "\u2715"
+    var blank = "\u00A0\u00A0"
+    list.addClass("btn btn-default ingredientButton");
+    list.text(userInp + blank + ex);
+    $(".list").append(list);
+
 });
 
 // show search results of recipe preview: image, title, and likes
