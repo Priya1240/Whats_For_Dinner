@@ -20,38 +20,41 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span class="titlestyle">What's for Dinner!?</span></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#"><span class="astyle">ABOUT</span></a></li>
-                    <li><a href="#"><span class="astyle">TRENDING RECIPES</span></a></li>
-                    <li><a href="#"><span class="astyle">STORE LOCATOR</span></a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-    </nav>
+
     <div class="container-fluid">
-        <div class="jumbotron">
-            <div class="container">
-                <h1>What's<br>For<br>Dinner!?</h1>
-                <p>A recipe generator based on the ingredients you have.</p>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="titlestyle">What's for Dinner!?</span></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#"><span class="astyle">ABOUT</span></a></li>
+                        <li><a href="#"><span class="astyle">TRENDING RECIPES</span></a></li>
+                        <li><a href="#"><span class="astyle">STORE LOCATOR</span></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>What's<br>For<br>Dinner!?</h1>
+                    <p>A recipe generator based on the ingredients you have.</p>
+                </div>
             </div>
         </div>
         <div class="container-fluid">
-        <div class="row" style="background-color: #FFA07A;>
-        <div class="panel panel-default">
+            <div style="background-color: #FFA07A;>
+            <div class=" panel panel-default ">
             <div class="panel-body">
                 <form action="" method="POST" role="form">
                     <h1>Ingredient List</h1>
@@ -64,56 +67,125 @@
                 <br>
                 <div class="list">
                 </div>
+                <br>
+                <button class="btn btn-primary">Find Me Recipes!</button>
             </div>
         </div>
-        </div>
-        </div>
-    </div>
-    <div id="recipePreview">
-        preview recipe goes here... 5 in a row
-    </div>
-    <!-- Trigger/Open The Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Grocery stores near you</h2>
-            </div>
-            <div class="modal-body" id="google-map">
-                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-sm-12" style="background-color:white;> 
-        <div class=" panel panel-default ">
-              <div class="panel-heading ">
-                  <h3 class="panel-title ">Need Ingredients? Find The Closest Grocery Store to You</h3>
-              </div>
-              <div class="panel-body ">
-                  <form action=" " method="POST " role="form ">
-                        <legend>Enter Zip Code:</legend>
-                        <div class="form-group ">
-                            <input type="text " class="form-control " id="addZip " placeholder=" ">
+        <div class="container-fluid" style="background-color: #65b286;>
+            <div id="recipePreview">
+                <h1>Recipes, Just for You!</h1><br>
+                <!-- This is the code for each thumbnail div-->
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
                         </div>
-                        <button id="ingSubmit " type="submit " class="btn btn-primary " id="searchZip ">Submit</button>
-                        <br>
-                        <br>
-                        <div id="groceryStores " class="google-maps ">
-                            <iframe frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+ " allowfullscreen>
-                            </iframe>
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
                         </div>
-                    </form>
-              </div>
-          </div>  
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="thumbnail ">
+                        <img src="assets/images/lunch.jpg" alt="... ">
+                        <div class="caption ">
+                            <h3>Salad a la mode</h3>
+                            <p>Serves: 4</p>
+                            <p>Calories: 600</p>
+                            <p><a href="# " class="btn btn-primary " role="button ">Show Recipe</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> 
+    // end of container div    
+    </div>
 
-    
+    <!-- Google Map API -->
+    <!-- Trigger/Open The Modal -->
+            <div id="myModal " class="modal ">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <span class="close ">&times;</span>
+                        <h2>Grocery stores near you</h2>
+                    </div>
+                    <div class="modal-body " id="google-map ">
+                        <iframe frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+ " allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+            <div class="col-sm-12 " style="background-color:white;>
+                <div class=" panel panel-default ">
+                    <div class="panel-heading ">
+                        <h3 class="panel-title ">Need Ingredients? Find The Closest Grocery Store to You</h3>
+                    </div>
+                    <div class="panel-body ">
+                        <form action=" " method="POST " role="form ">
+                            <legend>Enter Zip Code:</legend>
+                            <div class="form-group ">
+                                <input type="text " class="form-control " id="addZip " placeholder=" ">
+                            </div>
+                            <button id="ingSubmit " type="submit " class="btn btn-primary " id="searchZip ">Submit</button>
+                            <br>
+                            <br>
+                            <div id="groceryStores " class="google-maps ">
+                                <iframe frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+ " allowfullscreen>
+                                </iframe>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js "></script>
     <script src="assets/javascript/app.js "></script>
-
 </body>
 
-</html>
+</html>    
