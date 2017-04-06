@@ -5,6 +5,7 @@ $(function(){
 });
 
 var searchTerms = "";
+var ingredientCode = 0
 $('#ingSubmit').on('click', function() {
     event.preventDefault();
     var userInp = $('#addItem').val().trim();
@@ -18,11 +19,29 @@ $('#ingSubmit').on('click', function() {
     console.log("searchTerms:" + searchTerms);
 
     // add user input ingredients to list
-    var list = $('<ul>');
-    list.append('<li>' + userInp + '</li>');
-    $('.list').append(list);
-    $('#addItem').val('');
+    // var list = $('<ul>');
+    // list.append('<li>' + userInp + '</li>');
+    // $('.list').append(list);
+    // $('#addItem').val('');
+
+
+    // add user input ingredient as a button
+    var list = $("<button>");
+    var x = "\u2715"
+    var blank = "\u00A0\u00A0"
+    ingredientCode++
+    console.log(ingredientCode)
+    list.addClass("btn btn-default ingredientButton");
+    list.text(userInp + blank + x);
+    $(".list").append(list);
+    console.log(list)
+
+    // If user decides to remove item, ammend the list and string
+    $('.ingredientButton').on('click', function(event) {
+      $(this).remove();
+    });
 });
+
 
 // show search results of recipe preview: image, title, and likes
 $('#getRecipe').on('click', function showResults(){
