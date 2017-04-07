@@ -37,7 +37,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#"><span class="astyle">ABOUT</span></a></li>
                         <li><a href="#"><span class="astyle">TRENDING RECIPES</span></a></li>
-                        <li><a href="#"><span class="astyle">STORE LOCATOR</span></a></li>
+                        <li><a id="openmap" href="#"><span class="astyle">STORE LOCATOR</span></a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -75,15 +75,6 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h1>Store Locater</h1>
-                        <form action="" method="POST" role="form">
-                            <legend>Enter Zip Code:</legend>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="addZip" placeholder="">
-                            </div>
-                            <!-- Trigger/Open The Modal -->
-                            <button id="openmap" class="btn btn-primary ">Ingredients Locator</button>
-                            <br>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -149,19 +140,28 @@
                 </div>
             </div>
         </div>
-    // end of container div    
+        
     </div>
 
     <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
+  <div class="modal-content ">
+    <div class="modal-header ">
+      <span class="close ">&times;</span>
       <h2>Grocery stores near you</h2>
+      
+                            <h2>Enter Zip Code:</h2>
+                            <div class="form-group">
+                                <input type="text " class="form-control" id="addZip" placeholder=" ">
+                            </div>
+                            <!-- Trigger/Open The Modal -->
+                            <button id="searchZip" class="btn btn-primary ">Submit</button>
+                            <br>
+                       
     </div>
     <div class="modal-body" id="google-map">
-      <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
+      <iframe id="storeMap" width="600 " height="450 " frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
       </iframe>
     </div>
   </div>
