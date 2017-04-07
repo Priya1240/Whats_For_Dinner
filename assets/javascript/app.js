@@ -42,38 +42,79 @@ $('#ingSubmit').on('click', function() {
     });
 });
 
-
 // show search results of recipe preview: image, title, and likes
 $('#getRecipe').on('click', function showResults(){
   event.preventDefault();
   var recipeResults = $(this).attr("data-results");
 
-  var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms;
+  // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms;
+  var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
 
   $.ajax({
     url: queryURL,
     method: "GET",
     dataType: "JSON",
-    headers: {"X-Mashape-Key": "i4ECcdiynmmshKBDEhBL328ZNL7Xp1Q6tqXjsnJFxvS0ZxoSF1"}
+    headers: {"X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"}
   })
     .done(function(response){
-    console.log("url:" + queryURL);
-    console.log("response:" + response);
-    var recipedata = response.data;
+      console.log(response);
+    var recipedata = response;
+    console.log(recipedata);
+
+    var image;
+    var title;
+    var likes;
+    var idNum;
 
     for (var i=0; i<recipedata.length; i++) {
       var resultRecipe = $("<div class='result'>");
-      var image = $("<img>").attr("src", recipedata[i].image);
-      var title = $("<p>").text("title: " + recipedata[i].title);
-      var likes = $("<p>").text("likes: " + recipedata[i].likes);
-      var idNum = recipedata[i].id;
+      image = $("<img>").attr("src", recipedata[i].image);
+      title = $("<p>").text("title: " + recipedata[i].title);
+      likes = $("<p>").text("likes: " + recipedata[i].likes);
+      idNum = recipedata[i].id;
+      console.log(idNum);
+    }
+    function findRecipe(numRecipes, queryRecipe) {
+
+        $.ajax({
+
+            url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + idNum + "/analyzedInstructions?stepBreakdown=true",
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"
+            }
+
+        }).done(function(recipes) {
+
+          console.log("recipes:", recipes);
+
+          // if (recipes.length = 0) {
+
+          //  console.log("error");
+
+          //  // **display error message for user in html
+          // }
+
+         //    // Logging the URL for troubleshooting access
+         //    console.log("URL: " + queryRecipe);
+
+         //    // Logging recipes to console
+         //    console.log(recipes.length);
+
+         //    // Loop through and provide the correct number of recipes
+         //    for (var i = 0; i < recipes.length; i++) {
+
+         //     // append to HTML section for recipes;
+         //     var recipeSection = $("<div>");
+         //     $("#unknown").append(recipes);
+        });
     }
 
-    
+    findRecipe();
 
   });
 });
-
 
 // Get the modal
 var modal = $('#myModal')[0];
@@ -82,9 +123,6 @@ var mapbtn = $("#openmap")[0];
 // Get the <span> element that closes the modal
 var span = $(".close")[0];
 // When the user clicks on the button, open the modal
-
-
-
 $("#openmap").on("click", function(event){
   event.preventDefault();
   modal.style.display = "block";
@@ -102,6 +140,7 @@ window.onclick = function(event) {
     }
 }
 
+
 // // Initialize Firebase
 // var config = {
 //     apiKey: "AIzaSyB9zqrDimq0-II0wdrXEIga34C-dTJwoV0",
@@ -114,16 +153,12 @@ window.onclick = function(event) {
 
 // var database = firebase.database();
 
-// // #addZip
-// // #searchZip
-// // #groceryStores
-
 
 // var recent = "";
 // var favorite = "";
 //
 // $("#recentBtn").on("click", function(event){
-// 	event.preventDefault();
+//  event.preventDefault();
 //   recent =
 //   firebase.database().push({
 //     recent: recent
@@ -135,64 +170,5 @@ window.onclick = function(event) {
 // });
 //
 // firebase.database().ref().orderByChild("dataAdded").limitToLast(1).on("value", function(snapshot){
-// 	$(".recent-list").html(snapshot.val().name);
+//  $(".recent-list").html(snapshot.val().name);
 // });
-// 
-//
-// 
-
-
-function findRecipe(numRecipes, queryRecipe) {
-
-    $.ajax({
-    	
-        url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + idNum + "/analyzedInstructions?stepBreakdown=true",
-        method: "GET",
-        dataType: "JSON",
-        headers: {
-        	"X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"
-        }
-
-
-
-    }).done(function(recipes) {
-
-    	console.log("recipes:", recipes);
-
-
-    	// if (recipes.length = 0) {
-
-    	// 	console.log("error");
-
-    	// 	// **display error message for user in html
-    	// } 
-
-     //    // Logging the URL for troubleshooting access
-     //    console.log("URL: " + queryRecipe);
-
-     //    // Logging recipes to console
-     //    console.log(recipes.length);
-
-     //    // Loop through and provide the correct number of recipes
-     //    for (var i = 0; i < recipes.length; i++) {
-
-
-
-        	
-
-     //    	// append to HTML section for recipes;
-     //    	var recipeSection = $("<div>");
-     //    	$("#unknown").append(recipes);
-
-
-
-
-
-
-    });
-
-
-
-}
-
-findRecipe();
