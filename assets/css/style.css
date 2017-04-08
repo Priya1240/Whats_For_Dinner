@@ -111,8 +111,8 @@ li {
 
 /*Thumbnail Image Scale*/
 .thumbnail img {
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*display: block;*/
-    /*overflow: auto;*/
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow: auto;
 }
