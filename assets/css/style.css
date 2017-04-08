@@ -1,33 +1,26 @@
 /* CSS for Index Page */
-
 .navbar {
-
     background: none;
     border: none;
     box-shadow: none;
 }
-
 nav {
     padding-top: 30px;
     padding: 0px;
 }
-
 .titlestyle {
     color: #FFA07A;
     font-family: 'Pacifico', cursive;
     font-size: 30px;
 }
-
 .astyle {
     color: white;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 16px;
 }
-
 body {
     font-family: 'Open Sans Condensed', sans-serif;
 }
-
 .jumbotron {
     text-align: center;
     color: #FFA07A;
@@ -39,19 +32,15 @@ body {
     background-size: 100%;
     margin-bottom: 0px;
 }
-
 h1 {
     font-family: 'Pacifico', cursive;
 }
-
 p {
     font-family: 'Open Sans Condensed', sans-serif;
 }
-
 body {
     background-image: url("../images/dust.png");
 }
-
 .panel {
     margin: 0px;
     margin-left: 0px;
@@ -59,29 +48,23 @@ body {
     background: none;
     border: none;
 }
-
 .centerthis {
     /*text-align: center;*/
     background-color: #FFA07A;
 }
-
 ul {
     list-style-type: none;
 }
-
 li {
     float: left;
 }
-
 #groceryStores {}
-
 #google-map {
     position: relative;
     padding-bottom: 75%; // This is the aspect ratio
     height: 0;
     overflow: hidden;
 }
-
 #google-map iframe {
     position: absolute;
     top: 0;
@@ -89,7 +72,6 @@ li {
     width: 100% !important;
     height: 100% !important;
 }
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -104,7 +86,6 @@ li {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
@@ -113,16 +94,13 @@ li {
     border: 1px solid #888;
     width: 80%;
 }
-
 /* The Close Button */
-
 .close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: #000;
