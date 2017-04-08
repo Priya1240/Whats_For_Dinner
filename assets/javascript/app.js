@@ -1,4 +1,3 @@
-
 // show reccommended recipes when page first loaded
 $(function(){
   console.log("page loaded, show reccommended recipes in div #recipePreview");
@@ -9,7 +8,7 @@ var ingredientCode = 0
 $('#ingSubmit').on('click', function() {
     event.preventDefault();
     var userInp = $('#addItem').val().trim();
-
+    $(".form-control").val("");
     // add user input ingredients to searchTerms in queryURL
     if (searchTerms==""){
       searchTerms = userInp;
@@ -39,6 +38,7 @@ $('#ingSubmit').on('click', function() {
     // If user decides to remove item, ammend the list and string
     $('.ingredientButton').on('click', function(event) {
       $(this).remove();
+      console.log(removedItem)
     });
 });
 
@@ -65,15 +65,32 @@ $('#getRecipe').on('click', function showResults(){
     var title;
     var likes;
     var idNum;
+    var showMeRecipe;
 
+    // Display the Recipe Results in the Div
     for (var i=0; i<recipedata.length; i++) {
-      var resultRecipe = $("<div class='result'>");
+      var resultRecipe = $("<div>");
+      resultRecipe.addClass("col-sm-2")
+      var recipeThumb = $("<div>")
+      recipeThumb.addClass("thumbnail")
       image = $("<img>").attr("src", recipedata[i].image);
-      title = $("<p>").text("title: " + recipedata[i].title);
-      likes = $("<p>").text("likes: " + recipedata[i].likes);
+      title = $("<h3>").text(recipedata[i].title);
+      likes = $("<p>").text("Likes: " + recipedata[i].likes);
+      showMeRecipe = $("<a>").attr("href", "recipe.html")
+      showMeRecipe.attr("role", "button")
+      showMeRecipe.attr("target", "blank")
+      showMeRecipe.addClass("btn btn-primary")
+      showMeRecipe.id("recipeButton")
+      showMeRecipe.text("Show Me This Recipe")
       idNum = recipedata[i].id;
-      console.log(idNum);
+      recipeThumb.prepend(showMeRecipe)
+      recipeThumb.prepend(likes)
+      recipeThumb.prepend(title)
+      recipeThumb.prepend(image)
+      resultRecipe.prepend(recipeThumb)
+      $("#recipePreview").append(resultRecipe);
     }
+
     function findRecipe(numRecipes, queryRecipe) {
 
         $.ajax({
@@ -139,7 +156,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 
 // // Initialize Firebase
 // var config = {
