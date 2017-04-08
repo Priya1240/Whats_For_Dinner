@@ -66,7 +66,7 @@ $('#getRecipe').on('click', function showResults(){
     // Display the Recipe Results in the Div
     for (var i=0; i<recipedata.length; i++) {
       var resultRecipe = $("<div>");
-      resultRecipe.addClass("col-sm-2")
+      resultRecipe.addClass("col-md-2")
       var recipeThumb = $("<div>")
       recipeThumb.addClass("thumbnail")
       image = $("<img>").attr("src", recipedata[i].image);
@@ -76,6 +76,7 @@ $('#getRecipe').on('click', function showResults(){
       showMeRecipe.attr("role", "button")
       showMeRecipe.attr("target", "blank")
       showMeRecipe.addClass("btn btn-primary")
+      showMeRecipe.attr("id", "recipeButton")
       showMeRecipe.text("Show Me This Recipe")
       idNum = recipedata[i].id;
       recipeThumb.prepend(showMeRecipe)
