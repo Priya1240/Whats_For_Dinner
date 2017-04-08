@@ -9,39 +9,43 @@ $('#ingSubmit').on('click', function() {
     var userInp = $('#addItem').val().trim();
     $(".form-control").val("");
     // add user input ingredients to searchTerms in queryURL
-    if (searchTerms==""){
+    if (searchTerms===""){
       searchTerms = userInp;
-    } else if (searchTerms!=""){
+    } else if (searchTerms!==""){
       searchTerms = searchTerms + "%2C" + userInp; //"%2C" means ","
     }
     console.log("searchTerms:" + searchTerms);
-    // add user input ingredients to list
-    // var list = $('<ul>');
-    // list.append('<li>' + userInp + '</li>');
-    // $('.list').append(list);
-    // $('#addItem').val('');
-    // add user input ingredient as a button
     var list = $("<button>");
-    var x = "\u2715"
-    var blank = "\u00A0\u00A0"
-    ingredientCode++
-    console.log(ingredientCode)
-    list.addClass("btn btn-default ingredientButton");
+    list.attr("data-type", userInp);
+    var x = "\u2715";
+    var blank = "\u00A0\u00A0";
+    ingredientCode++;
+    console.log(ingredientCode);
+    list.addClass("ingredientButton");
     list.text(userInp + blank + x);
     $(".list").append(list);
-    console.log(list)
-    // If user decides to remove item, ammend the list and string
-    $('.ingredientButton').on('click', function(event) {
-      $(this).remove();
-      $ .attr("id", )
-      searchTerms =
-    });
+    console.log(list);
 });
+
+// If user decides to remove item, amend the list and string
+$(document).on('click', ".ingredientButton", function(event) {
+  event.preventDefault();
+  $(this).remove();
+  var type = $(this).data("type");
+  if(searchTerms === type){
+    searchTerms = "";
+  } else if(searchTerms.startsWith(type)){
+    searchTerms = searchTerms.replace(type+"%2C", "");
+  } else{
+    searchTerms = searchTerms.replace("%2C"+type, "");
+  }
+  console.log("searchTerms: " + searchTerms);
+});
+
 // show search results of recipe preview: image, title, and likes
 $('#getRecipe').on('click', function showResults(){
   event.preventDefault();
   var recipeResults = $(this).attr("data-results");
-  // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms;
   var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
   $.ajax({
     url: queryURL,
@@ -50,7 +54,7 @@ $('#getRecipe').on('click', function showResults(){
     headers: {"X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"}
   })
     .done(function(response){
-      console.log(response);
+    console.log(response);
     var recipedata = response;
     console.log(recipedata);
     var image;
