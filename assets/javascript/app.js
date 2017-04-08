@@ -7,7 +7,6 @@ var ingredientCode = 0
 $('#ingSubmit').on('click', function() {
     event.preventDefault();
     var userInp = $('#addItem').val().trim();
-
     $(".form-control").val("");
     // add user input ingredients to searchTerms in queryURL
     if (searchTerms === "") {
@@ -45,12 +44,53 @@ $(document).on('click', ".ingredientButton", function(event) {
 });
 
 // show search results of recipe preview: image, title, and likes
-$('#getRecipe').on('click', function showResults() {
-    event.preventDefault();
-    var recipeResults = $(this).attr("data-results");
-    var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
-    $.ajax({
-            url: queryURL,
+
+$('#getRecipe').on('click', function showResults(){
+  event.preventDefault();
+  var recipeResults = $(this).attr("data-results");
+  var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    dataType: "JSON",
+    headers: {"X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"}
+  })
+    .done(function(response){
+    console.log(response);
+    var recipedata = response;
+    console.log(recipedata);
+    var image;
+    var title;
+    var likes;
+    var idNum;
+    
+    // Display the Recipe Results in the Div
+    for (var i=0; i<recipedata.length; i++) {
+      var resultRecipe = $("<div>");
+      resultRecipe.addClass("col-md-2")
+      var recipeThumb = $("<div>")
+      recipeThumb.addClass("thumbnail")
+      image = $("<img>").attr("src", recipedata[i].image);
+      title = $("<h3>").text(recipedata[i].title);
+      likes = $("<p>").text("Likes: " + recipedata[i].likes);
+      showMeRecipe = $("<a>").attr("href", "recipe.html")
+      showMeRecipe.attr("role", "button")
+      showMeRecipe.attr("target", "blank")
+      showMeRecipe.addClass("btn btn-primary")
+      showMeRecipe.attr("id", "recipeButton")
+      showMeRecipe.text("Show Me This Recipe")
+      idNum = recipedata[i].id;
+      recipeThumb.prepend(showMeRecipe)
+      recipeThumb.prepend(likes)
+      recipeThumb.prepend(title)
+      recipeThumb.prepend(image)
+      resultRecipe.prepend(recipeThumb)
+      $("#recipePreview").append(resultRecipe);
+    }
+
+    function findRecipe(numRecipes, queryRecipe) {
+        $.ajax({
+            url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + idNum + "/analyzedInstructions?stepBreakdown=true",
             method: "GET",
             dataType: "JSON",
             headers: { "X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez" }
@@ -119,7 +159,6 @@ $("#searchZip").on("click", function() {
     $("#storeMap").attr("src", userurl);
 
 });
-
 
 // // Initialize Firebase
 // var config = {
