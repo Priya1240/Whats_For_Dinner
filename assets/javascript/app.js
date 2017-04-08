@@ -76,7 +76,6 @@ $('#getRecipe').on('click', function showResults(){
       showMeRecipe.attr("role", "button")
       showMeRecipe.attr("target", "blank")
       showMeRecipe.addClass("btn btn-primary")
-      showMeRecipe.id("recipeButton")
       showMeRecipe.text("Show Me This Recipe")
       idNum = recipedata[i].id;
       recipeThumb.prepend(showMeRecipe)
