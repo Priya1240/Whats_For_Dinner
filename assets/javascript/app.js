@@ -1,12 +1,13 @@
 // show reccommended recipes when page first loaded
-$(function(){
-  console.log("page loaded, show reccommended recipes in div #recipePreview");
+$(function() {
+    console.log("page loaded, show reccommended recipes in div #recipePreview");
 });
 var searchTerms = "";
 var ingredientCode = 0
 $('#ingSubmit').on('click', function() {
     event.preventDefault();
     var userInp = $('#addItem').val().trim();
+
     $(".form-control").val("");
     // add user input ingredients to searchTerms in queryURL
     if (searchTerms===""){
@@ -14,6 +15,7 @@ $('#ingSubmit').on('click', function() {
     } else if (searchTerms!==""){
       searchTerms = searchTerms + "%2C" + userInp; //"%2C" means ","
     }
+
     console.log("searchTerms:" + searchTerms);
     var list = $("<button>");
     list.attr("data-type", userInp);
@@ -96,6 +98,7 @@ $('#getRecipe').on('click', function showResults(){
     }
     findRecipe();
   });
+
 });
 // Get the modal
 var modal = $('#myModal')[0];
@@ -104,22 +107,30 @@ var mapbtn = $("#openmap")[0];
 // Get the <span> element that closes the modal
 var span = $(".close")[0];
 // When the user clicks on the button, open the modal
-$("#openmap").on("click", function(event){
-  event.preventDefault();
-  modal.style.display = "block";
-  zipCode = $("#addZip").val().trim();
-  userurl = "https:www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
+$("#openmap").on("click", function(event) {
+    event.preventDefault();
+    modal.style.display = "block";
+
 });
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
+$("#searchZip").on("click", function() {
+    zipCode = $("#addZip").val().trim();
+    userurl = "https:www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
+    $("#storeMap").attr("src", userurl);
+
+});
+
+
 // // Initialize Firebase
 // var config = {
 //     apiKey: "AIzaSyB9zqrDimq0-II0wdrXEIga34C-dTJwoV0",
