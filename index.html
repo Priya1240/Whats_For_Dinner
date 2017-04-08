@@ -54,57 +54,58 @@
         </div>
         <div class="container-fluid">
             <!-- <div class="row"> -->
-                <div class="col-sm-12" style="background-color:#FFA07A;">
-                    <div class=" panel panel-default ">
-                        <div class="panel-body">
-                            <form action="" method="POST" role="form">
-                                <h1>Ingredient List</h1>
-                                <h3>Add an Ingredient:</h3>
-                                <div class="form-group">
-                                    <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
-                                    <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                            <br>
-                            <div class="list">
+            <div class="col-sm-12" style="background-color:#FFA07A;">
+                <div class=" panel panel-default ">
+                    <div class="panel-body">
+                        <form action="" method="POST" role="form">
+                            <h1>Ingredient List</h1>
+                            <h3>Add an Ingredient:</h3>
+                            <div class="form-group">
+                                <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
+                                <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                            <br>
-                            <button class="btn btn-primary" id="getRecipe">Find Me Recipes!</button>
+                        </form>
+                        <br>
+                        <div class="list">
                         </div>
+                        <br>
+                        <button class="btn btn-primary" id="getRecipe">Find Me Recipes!</button>
                     </div>
                 </div>
+            </div>
         </div>
         <div class="container-fluid" style="background-color: #65b286;">
-            <h1>Recipes, Just for You!</h1><br>
+            <h1>Recipes, Just for You!</h1>
+            <br>
             <div class="row" id="recipePreview">
             </div>
         </div>
-    // end of container div
+        <div class="container-fluid" style="border: solid 10px white;">
+            <div class="theRecipe">
+            </div>
+        </div>
     </div>
-
     <!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content ">
-    <div class="modal-header ">
-      <span class="close ">&times;</span>
-      <h2>Grocery stores near you</h2>
-
-                            <h2>Enter Zip Code:</h2>
-                            <div class="form-group">
-                                <input type="text " class="form-control" id="addZip" placeholder=" ">
-                            </div>
-                            <!-- Trigger/Open The Modal -->
-                            <button id="searchZip" class="btn btn-primary ">Submit</button>
-                            <br>
-
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <span class="close ">&times;</span>
+                <h2>Grocery stores near you</h2>
+                <h2>Enter Zip Code:</h2>
+                <div class="form-group">
+                    <input type="text " class="form-control" id="addZip" placeholder=" ">
+                </div>
+                <!-- Trigger/Open The Modal -->
+                <button id="searchZip" class="btn btn-primary ">Submit</button>
+                <br>
+            </div>
+            <div class="modal-body" id="google-map">
+                <iframe id="storeMap" width="600 " height="450 " frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
     </div>
-    <div class="modal-body" id="google-map">
-      <iframe id="storeMap" width="600 " height="450 " frameborder="0 " style="border:0 " src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</div>
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
