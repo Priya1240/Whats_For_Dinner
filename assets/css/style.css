@@ -9,7 +9,7 @@ nav {
     padding: 0px;
 }
 .titlestyle {
-    color: #FFA07A;
+    color: #D6C0CC;
     font-family: 'Pacifico', cursive;
     font-size: 30px;
 }
@@ -18,29 +18,34 @@ nav {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 16px;
 }
+
 body {
     font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #6B4C5C;
+    /*background-image: url('../images/dust.png')*/
 }
+
+
 .jumbotron {
     text-align: center;
     color: #FFA07A;
-    /*background-image: url('cooking.jpg');*/
-    background: url('../images/plate.jpg') no-repeat center center;
+    /*background: url('../images/plate.jpg') no-repeat center center;*/
+    background: url('../images/empty-plate.jpg') no-repeat center center;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
     background-size: 100%;
     margin-bottom: 0px;
+    margin-top: 100px;
 }
 h1 {
     font-family: 'Pacifico', cursive;
+    color: #D6C0CC;
 }
 p {
     font-family: 'Open Sans Condensed', sans-serif;
 }
-body {
-    background-image: url("../images/dust.png");
-}
+
 .panel {
     margin: 0px;
     margin-left: 0px;
@@ -61,7 +66,7 @@ li {
 #groceryStores {}
 #google-map {
     position: relative;
-    padding-bottom: 75%; // This is the aspect ratio
+    padding-bottom: 75%;
     height: 0;
     overflow: hidden;
 }
@@ -115,4 +120,19 @@ li {
     width: 100%;
     display: block;
     overflow: auto;
+}
+
+.featurette-image {
+    height: 500px;
+    width: 500px;
+    display: block;
+    overflow: hidden;
+}
+
+/*Splash Button*/
+#start {
+    background-color: #9B818F;
+    font-family: 'Open Sans Condensed', sans-serif;
+    border: none; 
+    font-size: 25px;
 }

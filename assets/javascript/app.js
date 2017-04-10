@@ -1,3 +1,19 @@
+$( document ).ready(function() {
+    $("body").fadeIn(2000);
+    $(".navbar").hide();
+    $("#steps").hide();
+    $("#yourRecipes").hide();
+
+    $( "#start" ).click(function() {
+        $(".splash").fadeOut(1000);
+        $(".navbar").delay(1000).fadeIn(1000);
+        $("#steps").delay(1000).fadeIn(1000);
+
+        
+    });
+
+});
+
 // show reccommended recipes when page first loaded
 $(function() {
     console.log("page loaded, show reccommended recipes in div #recipePreview");
@@ -48,6 +64,7 @@ $(document).on('click', ".ingredientButton", function(event) {
 
 $('#getRecipe').on('click', function showResults() {
     event.preventDefault();
+    $("#yourRecipes").delay(1000).fadeIn(1000);
 
     $("#recipePreview").empty();
     var recipeResults = $(this).attr("data-results");
@@ -69,28 +86,57 @@ $('#getRecipe').on('click', function showResults() {
 
             // Display the Recipe Results in the Div
             for (var i = 0; i < recipedata.length; i++) {
+                // var resultRecipe = $("<div>");
+                // resultRecipe.addClass("col-md-2")
+                // var recipeThumb = $("<div>")
+                // recipeThumb.addClass("thumbnail")
+                // image = $("<img>").attr("src", recipedata[i].image);
+                // title = $("<h3>").text(recipedata[i].title);
+                // likes = $("<p>").text("Likes: " + recipedata[i].likes);
+                // showMeRecipe = $("<a>").attr("href", "recipe.html")
+                // // showMeRecipe = $("<button>")
+                // showMeRecipe.attr("role", "button")
+                // showMeRecipe.attr("target", "blank")
+                // showMeRecipe.addClass("btn btn-primary")
+                // showMeRecipe.addClass("recipeButton")
+                // showMeRecipe.text("Show Me This Recipe")
+                // idNum = recipedata[i].id;
+                // recipeThumb.prepend(showMeRecipe)
+                // recipeThumb.prepend(likes)
+                // recipeThumb.prepend(title)
+                // recipeThumb.prepend(image)
+                // resultRecipe.prepend(recipeThumb)
+                // $("#recipePreview").append(resultRecipe);
+                // // $(".thumbnail").wrap('<a href="' + chosenRecipe +' "></a>');
+
+                var featureHead = $("<hr>")
+                featureHead.addClass("featurette-divider")
                 var resultRecipe = $("<div>");
-                resultRecipe.addClass("col-md-2")
+                resultRecipe.addClass("row featurette")
+                var recipeImage = $("<div>")
+                recipeImage.addClass("col-md-5")
                 var recipeThumb = $("<div>")
-                recipeThumb.addClass("thumbnail")
-                image = $("<img>").attr("src", recipedata[i].image);
-                title = $("<h3>").text(recipedata[i].title);
+                recipeThumb.addClass("col-md-7")
+                image = $("<img>");
+                image.addClass("featurette-image img-responsive center-block");
+                image.attr("src", recipedata[i].image);
+                title = $("<h2>").text(recipedata[i].title);
                 likes = $("<p>").text("Likes: " + recipedata[i].likes);
                 showMeRecipe = $("<a>").attr("href", "recipe.html")
-                // showMeRecipe = $("<button>")
                 showMeRecipe.attr("role", "button")
                 showMeRecipe.attr("target", "blank")
                 showMeRecipe.addClass("btn btn-primary")
                 showMeRecipe.addClass("recipeButton")
                 showMeRecipe.text("Show Me This Recipe")
                 idNum = recipedata[i].id;
+                recipeImage.prepend(image)
                 recipeThumb.prepend(showMeRecipe)
                 recipeThumb.prepend(likes)
                 recipeThumb.prepend(title)
-                recipeThumb.prepend(image)
+                resultRecipe.prepend(recipeImage)
                 resultRecipe.prepend(recipeThumb)
+                resultRecipe.prepend(featureHead)
                 $("#recipePreview").append(resultRecipe);
-                // $(".thumbnail").wrap('<a href="' + chosenRecipe +' "></a>');
             }
 
         });
