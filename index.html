@@ -48,6 +48,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#"><span class="astyle">ABOUT</span></a></li>
+                    <li><a href="#"><span class="astyle" id="trendButton">TRENDING RECIPES</span></a></li>
                     <li><a id="openmap" href="#"><span class="astyle">STORE LOCATOR</span></a></li>
                 </ul>
             </div>
@@ -57,9 +58,10 @@
 
 <div class="container-fluid">
     <div class="container-fluid" id="steps">
-        <div class="row">
-            <div class="col-lg-4 stepOne">
-                <h2>Step One:<br>Add Some Ingredients</h2>
+        <div class="row" style="border: solid; border-color: #D6C0CC;">
+            <div class="col-lg-4 steps">
+                <h2>Step One:</h2>
+                <h3>Add Some Ingredients</h3>
                 <form action="" method="POST" role="form">
                     <div class="form-group">
                         <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
@@ -67,32 +69,79 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 stepTwo">
-                <h2>Step Two:<br>View and Edit your Ingredient List</h2>
+            <div class="col-lg-4 steps">
+                <h2>Step Two:</h2>
+                <h3>View and Edit your Ingredient List</h3>
                 <div class="list">
                 </div>
             </div>
-            <div class="col-lg-4 stepTwo">
-                <h2>Step Three:<br>Get Your Recipes!</h2>
-                <button class="btn btn-primary" id="getRecipe">Find Me Recipes!</button>
+            <div class="col-lg-4 steps">
+                <h2>Step Three:</h2>
+                <button class="btn findBtn animated infinite flash" id="getRecipe" style="outline: none;"><h3>Find Me Recipes!</h3></button>
             </div>
         </div>
     </div>
-    <div class="container-fluid bounceInDown" id="yourRecipes">
+    <div class="container-fluid animated fadeInUp" id="yourRecipes">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Recipes, just for you!</h2>
+                <h1 style="text-align: center;">Here's whats for dinner!!</h1>
                 <div id="recipePreview"></div>
             </div>
         </div>
     </div>
+    <!-- Trending Recipe -->
+    <div class="container-fluid animated fadeInUp" id="trending">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center;">Trending Recipes</h1>
+                <div id="recipePreview">
+                    <hr class="featurette-divider">
+                    <div class="row featurette">
+                        <div class="col-md-7 push-md-5">
+                            <h2 class="featurette-heading">Seder What!? <span class="text-muted">Quinoa Tabbouleh</span></h2>
+                            <p class="lead">This Quinoa Tabbouleh is a perfect addition to your Seder dinner table!</p>
+                        </div>
+                        <div class="col-md-5 pull-md-7">
+                            <a href="http://allrecipes.com/recipe/25922/quinoa-tabbouleh/?internalSource=staff%20pick&referringId=985&referringContentType=recipe%20hub&clickId=cardslot%206" target="_blank">
+                            <img class="featurette-image img-fluid mx-auto" src="assets/images/quinoa.jpg" alt="Generic placeholder image">
+                            </a>
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+                    <div class="row featurette">
+                        <div class="col-md-7 push-md-5">
+                            <h2 class="featurette-heading">Two Words: BRUNCH. PUNCH. <span class="text-muted">Yup. brunch punch.</span></h2>
+                            <p class="lead">Sunday is truly funday with this amazing spiked punch recipe from Delish!</p>
+                        </div>
+                        <div class="col-md-5 pull-md-7">
+                            <a href="http://www.delish.com/cooking/recipe-ideas/videos/a52430/brunch-punch-video/" target="_blank">
+                            <img class="featurette-image img-fluid mx-auto" src="assets/images/punch.jpg" alt="Generic placeholder image">
+                            </a>
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+                    <div class="row featurette">
+                        <div class="col-md-7 push-md-5">
+                            <h2 class="featurette-heading">Go all out. <span class="text-muted">Seared Scallops and Potato Celery Root Purée</span></h2>
+                            <p class="lead">Date Night is easy with this spectacular recipe courtesy of the Barefoot Contessa</p>
+                        </div>
+                        <div class="col-md-5 pull-md-7">
+                            <a href="https://barefootcontessa.com/recipes/seared-scallops-potato-celery-root-pur%C3%A9e" target="_blank">
+                            <img class="featurette-image img-fluid mx-auto" src="assets/images/scallop.jpg" alt="Generic placeholder image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
-        <div class="modal-content ">
-            <div class="modal-header ">
+        <div class="modal-content">
+            <div class="modal-header">
                 <span class="close ">&times;</span>
                 <h2>Grocery stores near you</h2>
                 <h2>Enter Zip Code:</h2>
@@ -100,7 +149,7 @@
                     <input type="text " class="form-control" id="addZip" placeholder=" ">
                 </div>
                 <!-- Trigger/Open The Modal -->
-                <button id="searchZip" class="btn btn-primary ">Submit</button>
+                <button id="searchZip" class="btn">Submit</button>
                 <br>
             </div>
             <div class="modal-body" id="google-map">
