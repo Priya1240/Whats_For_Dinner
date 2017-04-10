@@ -3,16 +3,27 @@ $( document ).ready(function() {
     $(".navbar").hide();
     $("#steps").hide();
     $("#yourRecipes").hide();
+    $("#trending").hide();
 
     $( "#start" ).click(function() {
         $(".splash").fadeOut(1000);
         $(".navbar").delay(1000).fadeIn(1000);
         $("#steps").delay(1000).fadeIn(1000);
+        $("#trending").delay(1000).fadeIn(3000);
 
         
     });
 
 });
+
+
+
+$( "#trendButton" ).on( "click", function() {
+  $("#yourRecipes").hide();
+  $("#trending").delay(1000).fadeIn(3000);
+});
+
+$( ".addItem" ).focus();
 
 // show reccommended recipes when page first loaded
 $(function() {
@@ -64,6 +75,7 @@ $(document).on('click', ".ingredientButton", function(event) {
 
 $('#getRecipe').on('click', function showResults() {
     event.preventDefault();
+    $("#trending").hide();
     $("#yourRecipes").delay(1000).fadeIn(1000);
 
     $("#recipePreview").empty();
@@ -118,7 +130,9 @@ $('#getRecipe').on('click', function showResults() {
                 var recipeThumb = $("<div>")
                 recipeThumb.addClass("col-md-7")
                 image = $("<img>");
-                image.addClass("featurette-image img-responsive center-block");
+                // image.addClass("featurette-image img-responsive center-block");
+                image.addClass("featurette-image img-fluid mx-auto");
+                
                 image.attr("src", recipedata[i].image);
                 title = $("<h2>").text(recipedata[i].title);
                 likes = $("<p>").text("Likes: " + recipedata[i].likes);
