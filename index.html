@@ -15,76 +15,79 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Animate Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Custom Style -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>What's For Dinner?</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><span class="titlestyle">What's for Dinner!?</span></a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#"><span class="astyle">ABOUT</span></a></li>
-                        <li><a href="#"><span class="astyle">TRENDING RECIPES</span></a></li>
-                        <li><a id="openmap" href="#"><span class="astyle">STORE LOCATOR</span></a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-        </nav>
+
+    <div class="container animated bounceInDown splash" style="text-align: center; margin-top: 100px;">
+        <!-- <div class="container" style="text-align: center;"> -->
+            <h1 style="font-size: 100px;" class="animated infinite pulse fir">What's<br>For<br>Dinner!?</h1>   
+            <p style="font-size: 50px;">A recipe generator based on the ingredients you have.</p>
+            <button id="start">Get Started</button>
+        <!-- </div> -->
+    </div>
+    
+
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
-            <div class="jumbotron">
-                <div class="container">
-                    <h1>What's<br>For<br>Dinner!?</h1>
-                    <p>A recipe generator based on the ingredients you have.</p>
-                </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><span class="titlestyle">What's for Dinner!?</span></a>
             </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><span class="astyle">ABOUT</span></a></li>
+                    <li><a id="openmap" href="#"><span class="astyle">STORE LOCATOR</span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="container-fluid">
-            <!-- <div class="row"> -->
-            <div class="col-sm-12" style="background-color:#FFA07A;">
-                <div class=" panel panel-default ">
-                    <div class="panel-body">
-                        <form action="" method="POST" role="form">
-                            <h1>Ingredient List</h1>
-                            <h3>Add an Ingredient:</h3>
-                            <div class="form-group">
-                                <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
-                                <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                        <br>
-                        <div class="list">
-                        </div>
-                        <br>
-                        <button class="btn btn-primary" id="getRecipe">Find Me Recipes!</button>
+    </nav>
+
+<div class="container-fluid">
+    <div class="container-fluid" id="steps">
+        <div class="row">
+            <div class="col-lg-4 stepOne">
+                <h2>Step One:<br>Add Some Ingredients</h2>
+                <form action="" method="POST" role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
+                        <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Add</button>
                     </div>
+                </form>
+            </div>
+            <div class="col-lg-4 stepTwo">
+                <h2>Step Two:<br>View and Edit your Ingredient List</h2>
+                <div class="list">
                 </div>
             </div>
-        </div>
-        <div class="container-fluid" style="background-color: #65b286;">
-            <h1>Recipes, Just for You!</h1>
-            <br>
-            <div class="row" id="recipePreview">
-            </div>
-        </div>
-        <div class="container-fluid" style="border: solid 10px white;">
-            <div class="theRecipe">
+            <div class="col-lg-4 stepTwo">
+                <h2>Step Three:<br>Get Your Recipes!</h2>
+                <button class="btn btn-primary" id="getRecipe">Find Me Recipes!</button>
             </div>
         </div>
     </div>
+    <div class="container-fluid bounceInDown" id="yourRecipes">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Recipes, just for you!</h2>
+                <div id="recipePreview"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
