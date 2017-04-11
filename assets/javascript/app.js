@@ -106,7 +106,7 @@ $('#getRecipe').on('click', function showResults() {
                 likes = $("<p>").text("Likes: " + recipedata[i].likes);
                 showMeRecipe = $("<button>")
                 showMeRecipe.attr("target", "blank")
-                showMeRecipe.addClass("btn <resultButton></resultButton>")
+                showMeRecipe.addClass("btn")
                 showMeRecipe.addClass("recipeButton")
                 showMeRecipe.text("Show Me This Recipe")
                 showMeRecipe.attr("recipeID", recipedata[i].id) // add id to button, #recipeID will be used in full recipe URL
