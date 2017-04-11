@@ -144,6 +144,7 @@ li {
 /*Splash Button*/
 #start {
     background-color: #9B818F;
+    color: #231C20;
     font-family: 'Open Sans Condensed', sans-serif;
     border: none; 
     font-size: 25px;
@@ -152,6 +153,15 @@ li {
 button {
     background-color: #9B818F;
     font-family: 'Open Sans Condensed', sans-serif;
+    color: #2D292B;
+    border: none; 
+    font-size: 25px;
+}
+
+.resultButton {
+    background-color: #9B818F;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #2D292B;
     border: none; 
     font-size: 25px;
 }
@@ -163,6 +173,9 @@ input[type="text"]
     /*outline: none;*/
 }
 
+#selectText {
+    color: #2D292B;
+}
 
 .steps {
     text-align: center;
