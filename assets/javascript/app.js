@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
     $("body").fadeIn(2000);
     $(".navbar").hide();
     $("#steps").hide();
@@ -10,25 +10,21 @@ $( document ).ready(function() {
         $(".navbar").delay(1000).fadeIn(1000);
         $("#steps").delay(1000).fadeIn(1000);
         $("#trending").delay(1000).fadeIn(3000);
-
-        
     });
-
 });
 
-
-
-$( "#trendButton" ).on( "click", function() {
+$("#trendButton").on("click", function() {
   $("#yourRecipes").hide();
   $("#trending").delay(1000).fadeIn(3000);
 });
 
-$( ".addItem" ).focus();
+$(".addItem").focus();
 
 // show reccommended recipes when page first loaded
 $(function() {
     console.log("page loaded, show reccommended recipes in div #recipePreview");
 });
+
 var idNum = "";
 var searchTerms = "";
 var ingredientCode = 0
@@ -43,41 +39,39 @@ $('#ingSubmit').on('click', function() {
         searchTerms = searchTerms + "%2C" + userInp; //"%2C" means ","
     }
 
-    console.log("searchTerms:" + searchTerms);
+    console.log("searchTerms: " + searchTerms);
     var list = $("<button>");
     list.attr("data-type", userInp);
     var x = "\u2715";
     var blank = "\u00A0\u00A0";
     ingredientCode++;
-    console.log(ingredientCode);
+    console.log("ingredientCode: " + ingredientCode);
     list.addClass("ingredientButton");
     list.text(userInp + blank + x);
     $(".list").append(list);
-    console.log(list);
+    console.log("list: " + list);
 });
 
-// If user decides to remove item, amend the list and string
+// If user decides to remove item, amend the searchTerms in URL
 $(document).on('click', ".ingredientButton", function(event) {
     event.preventDefault();
     $(this).remove();
     var type = $(this).data("type");
     if (searchTerms === type) {
-        searchTerms = "";
+        searchTerms = ""; //only one search term
     } else if (searchTerms.startsWith(type)) {
-        searchTerms = searchTerms.replace(type + "%2C", "");
+        searchTerms = searchTerms.replace(type + "%2C", ""); //delete the first seach term
     } else {
-        searchTerms = searchTerms.replace("%2C" + type, "");
+        searchTerms = searchTerms.replace("%2C" + type, ""); // delete search term(s) located not in the first place
     }
     console.log("searchTerms: " + searchTerms);
 });
 
 // show search results of recipe preview: image, title, and likes
-
 $('#getRecipe').on('click', function showResults() {
     event.preventDefault();
     $("#trending").hide();
     $("#yourRecipes").delay(1000).fadeIn(1000);
-
     $("#recipePreview").empty();
     var recipeResults = $(this).attr("data-results");
     var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
@@ -95,32 +89,8 @@ $('#getRecipe').on('click', function showResults() {
             var title;
             var likes;
 
-
             // Display the Recipe Results in the Div
             for (var i = 0; i < recipedata.length; i++) {
-                // var resultRecipe = $("<div>");
-                // resultRecipe.addClass("col-md-2")
-                // var recipeThumb = $("<div>")
-                // recipeThumb.addClass("thumbnail")
-                // image = $("<img>").attr("src", recipedata[i].image);
-                // title = $("<h3>").text(recipedata[i].title);
-                // likes = $("<p>").text("Likes: " + recipedata[i].likes);
-                // showMeRecipe = $("<a>").attr("href", "recipe.html")
-                // // showMeRecipe = $("<button>")
-                // showMeRecipe.attr("role", "button")
-                // showMeRecipe.attr("target", "blank")
-                // showMeRecipe.addClass("btn btn-primary")
-                // showMeRecipe.addClass("recipeButton")
-                // showMeRecipe.text("Show Me This Recipe")
-                // idNum = recipedata[i].id;
-                // recipeThumb.prepend(showMeRecipe)
-                // recipeThumb.prepend(likes)
-                // recipeThumb.prepend(title)
-                // recipeThumb.prepend(image)
-                // resultRecipe.prepend(recipeThumb)
-                // $("#recipePreview").append(resultRecipe);
-                // // $(".thumbnail").wrap('<a href="' + chosenRecipe +' "></a>');
-
                 var featureHead = $("<hr>")
                 featureHead.addClass("featurette-divider")
                 var resultRecipe = $("<div>");
@@ -130,18 +100,16 @@ $('#getRecipe').on('click', function showResults() {
                 var recipeThumb = $("<div>")
                 recipeThumb.addClass("col-md-7")
                 image = $("<img>");
-                // image.addClass("featurette-image img-responsive center-block");
                 image.addClass("featurette-image img-fluid mx-auto");
-                
                 image.attr("src", recipedata[i].image);
                 title = $("<h2>").text(recipedata[i].title);
                 likes = $("<p>").text("Likes: " + recipedata[i].likes);
-                showMeRecipe = $("<a>").attr("href", "recipe.html")
-                showMeRecipe.attr("role", "button")
+                showMeRecipe = $("<button>")
                 showMeRecipe.attr("target", "blank")
-                showMeRecipe.addClass("btn btn-primary")
+                showMeRecipe.addClass("btn")
                 showMeRecipe.addClass("recipeButton")
                 showMeRecipe.text("Show Me This Recipe")
+                showMeRecipe.attr("recipeID", recipedata[i].id) // add id to button, #recipeID will be used in full recipe URL
                 idNum = recipedata[i].id;
                 recipeImage.prepend(image)
                 recipeThumb.prepend(showMeRecipe)
@@ -152,37 +120,24 @@ $('#getRecipe').on('click', function showResults() {
                 resultRecipe.prepend(featureHead)
                 $("#recipePreview").append(resultRecipe);
             }
-
         });
 
     $(document).on("click", ".recipeButton", function(event) {
         event.preventDefault();
-
         $.ajax({
-            url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + idNum + "/information?includeNutrition=false",
+            url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + $(this).attr("recipeID") + "/information?includeNutrition=false",
             method: "GET",
             dataType: "JSON",
             headers: {
                 "X-Mashape-Key": "VS2DQ1Z8NsmshinFxHOYEzkSKA9Hp1dqzxFjsnBjVYMArEc4Ez"
-            }
-        }).done(function(recipes) {
-            var chosenRecipe = recipes.sourceUrl;
-            console.log(idNum);
-            console.log("recipes:", recipes);
-            // $(".recipeButton").html($("<a>").attr("href", chosenRecipe));
-            console.log(recipes.sourceUrl);
-            $(".recipeButton").on("click", function(){
-                    window.open(recipes.sourceUrl);
-            });
-
+            },
+             success: function(recipes) {
+               var chosenRecipe = recipes.sourceUrl;
+               window.open(recipes.sourceUrl);
+             }
         });
     })
 });
-
-
-
-
-
 
 
 // Get the modal
@@ -195,12 +150,11 @@ var span = $(".close")[0];
 $("#openmap").on("click", function(event) {
     event.preventDefault();
     modal.style.display = "block";
-
 });
 // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//         modal.style.display = "none";
-//     }
+span.onclick = function() {
+        modal.style.display = "none";
+    }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -212,34 +166,4 @@ $("#searchZip").on("click", function() {
     zipCode = $("#addZip").val().trim();
     userurl = "https:www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
     $("#storeMap").attr("src", userurl);
-
 });
-
-// // Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyB9zqrDimq0-II0wdrXEIga34C-dTJwoV0",
-//     authDomain: "whats4dinner-eab75.firebaseapp.com",
-//     databaseURL: "https://whats4dinner-eab75.firebaseio.com",
-//     storageBucket: "whats4dinner-eab75.appspot.com",
-//     messagingSenderId: "1061192161195"
-// };
-// firebase.initializeApp(config);
-// var database = firebase.database();
-// var recent = "";
-// var favorite = "";
-//
-// $("#recentBtn").on("click", function(event){
-//  event.preventDefault();
-//   recent =
-//   firebase.database().push({
-//     recent: recent
-//   });
-//
-//   firebase.database().ref().on("child_added", function(snapshot){
-//     $(".recent-list").append("<div>" + snapshot.val().recent + "</div>");
-//   });
-// });
-//
-// firebase.database().ref().orderByChild("dataAdded").limitToLast(1).on("value", function(snapshot){
-//  $(".recent-list").html(snapshot.val().name);
-// });
