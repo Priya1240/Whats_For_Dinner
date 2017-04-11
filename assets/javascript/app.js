@@ -53,8 +53,8 @@ $('#ingSubmit').on('click', function () {
 });
 
 // If user decides to remove item, amend the list and string
-//$(document).on('click', ".ingredientButton", function (event) {
-$('.ingredientButton').click(function(event) {
+$(document).on('click', ".ingredientButton", function (event) {
+// $('.ingredientButton').click(function(event) {
     event.preventDefault();
     $(this).remove();
     var type = $(this).data("type");
@@ -73,7 +73,7 @@ $('.ingredientButton').click(function(event) {
 $('#getRecipe').on('click', function () {
     event.preventDefault();
     $("#yourRecipes").delay(1000).fadeIn(1000);
-
+    $("#trending").hide();
     $("#recipePreview").empty();
     //var recipeResults = $(this).attr("data-results");
     var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchTerms + "&limitLicense=false&number=5&ranking=1";
@@ -163,7 +163,9 @@ $("#openmap").on("click", function (event) {
 
 });
 
-
+span.onclick = function() {
+        modal.style.display = "none";
+    }
 
 modal.onclick = function(event) {
     if (event.target == this)

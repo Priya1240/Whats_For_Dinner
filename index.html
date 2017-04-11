@@ -57,26 +57,28 @@
 
 <div class="container-fluid">
     <div class="container-fluid" id="steps">
-        <div class="row" style="border: solid; border-color: #D6C0CC;">
+        <div class="row" style=" border-color: #56465D; border: solid; background-color: #D6C0CC;">
             <div class="col-lg-4 steps">
-                <h2>Step One:</h2>
-                <h3>Add Some Ingredients</h3>
+                <h2 id="selectText">Step One:</h2>
+                <h3 id="selectText">Add Some Ingredients</h3>
                 <form action="" method="POST" role="form">
                     <div class="form-group">
                         <input type="text" class="form-control col-xs-2" id="addItem" placeholder="ie. bacon" type="reset">
+                        &nbsp<br>
                         <button class="preferences" id="ingSubmit" type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </form>
             </div>
             <div class="col-lg-4 steps">
-                <h2>Step Two:</h2>
-                <h3>View and Edit your Ingredient List</h3>
+                <h2 id="selectText">Step Two:</h2>
+                <h3 id="selectText">View and Edit your Ingredient List</h3>
                 <div class="list">
                 </div>
             </div>
             <div class="col-lg-4 steps">
-                <h2>Step Three:</h2>
-                <button class="btn findBtn animated infinite pulse" id="getRecipe" style="outline: none;"><h3>Find Me Recipes!</h3></button>
+                <h2 id="selectText">Step Three:</h2>
+                <button class="preferences" id="getRecipe" type="submit" class="btn btn-primary">Find Me Recipes!</button>
+                <br>
             </div>
         </div>
     </div>
