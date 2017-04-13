@@ -145,6 +145,7 @@ function showSearchResults(recipes) {
 
 }
 
+
 function showRecipe(recipe) {
     window.open(recipe.sourceUrl);
 }
@@ -163,8 +164,6 @@ $("#openmap").on("click", function (event) {
 
 });
 
-
-
 modal.onclick = function(event) {
     if (event.target == this)
         this.style.display = 'none';
@@ -172,7 +171,7 @@ modal.onclick = function(event) {
 
 $("#searchZip").on("click", function () {
     zipCode = $("#addZip").val().trim();
-    userurl = "https:www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
+    userurl = "https://www.google.com/maps/embed/v1/search?key=AIzaSyBGnB25L1jvt7LwgV8_YnEQoFx6SAcR048&q=grocery+stores+near+" + zipCode;
     $("#storeMap").attr("src", userurl);
 
 });
